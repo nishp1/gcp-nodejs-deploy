@@ -21,6 +21,10 @@ const app = express();
 // Say hello!
 app.get('/', (req, res) => {
   res.status(200).send('Hello, world again! ');
+  setTimeout(() => {
+  	console.log('exiting...')
+  	process.exit(1)
+  }, 10000)
 });
 // [END hello_world]
 
