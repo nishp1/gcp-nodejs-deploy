@@ -14,6 +14,8 @@ jobs:
     steps:
       - checkout
 
+      - run: export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash;
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -27,6 +29,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: gcloud app deploy;
 
 
 
